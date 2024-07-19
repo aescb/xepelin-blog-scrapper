@@ -5,10 +5,7 @@ import functions_framework
 @functions_framework.http
 def scrap(request):
   params = request.args
-  if params['category'] == 'all':
-    return scrap_all()
-  else:
-    return { 'result': scrap_category(params['category']) }
+  return { 'result': scrap_category(params['category']) }
 
 def scrap_category(category):
   if category == 'Pymes':
@@ -43,13 +40,3 @@ def scrap_category(category):
       'published_date': blog['date']
       })
   return return_array
-
-def scrap_all():
-  pymes = scrap_category('Pymes')
-  xepelin = scrap_category('Xepelin')
-  corporatives = scrap_category('Corporativos')
-  financial_education = scrap_category('Educacion Financiera')
-  enterpreneurs = scrap_category('Emprendedores')
-  success_cases = scrap_category('Casos de exito')
-
-  return { 'result': pymes + xepelin + corporatives + financial_education + enterpreneurs + success_cases }
