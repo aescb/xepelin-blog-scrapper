@@ -45,11 +45,11 @@ def scrap_category(category):
   return return_array
 
 def scrap_all():
-  pymes = scrap('Pymes')
-  xepelin = scrap('Xepelin')
-  corporatives = scrap('Corporativos')
-  financial_education = scrap('Educacion Financiera')
-  enterpreneurs = scrap('Emprendedores')
-  success_cases = scrap('Casos de exito')
+  pymes = scrap_category('Pymes')
+  xepelin = scrap_category('Xepelin')
+  corporatives = scrap_category('Corporativos')
+  financial_education = scrap_category('Educacion Financiera')
+  enterpreneurs = scrap_category('Emprendedores')
+  success_cases = scrap_category('Casos de exito')
 
   return { 'result': pymes + xepelin + corporatives + financial_education + enterpreneurs + success_cases }
